@@ -1,7 +1,7 @@
 import scrapy
 import csv
 
-from WebScrapingScrapy.article import Article
+from WebScrapingScrapy.annoucement import Annoucement
 from WebScrapingScrapy.form import fill_form
 
 
@@ -62,8 +62,9 @@ class CarsSpider(scrapy.Spider):
             region = location_infos[2 * a + 1]
             region = region[1:len(region) - 1]
             self.list_of_articles.append(
-                Article(model_name, production_year, mileage, engine_capacity, fuel_type, price, currency, city,
+                Annoucement(model_name, production_year, mileage, engine_capacity, fuel_type, price, currency, city,
                         region))
 
         if self.pages_counter == self.number_of_pages:
             self.write_to_csv()
+

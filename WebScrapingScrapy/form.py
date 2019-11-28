@@ -1,13 +1,10 @@
 import time
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.select import Select
 
 
 def fill_form(url):
-    options = Options()
-    options.headless = True
-    browser = webdriver.Chrome("C:/chromedriver.exe", chrome_options=options)
+    browser = webdriver.Chrome("C:/chromedriver.exe")
     browser.get(url)
     browser.find_element_by_link_text('Osobowe').click()
     time.sleep(0.4)
