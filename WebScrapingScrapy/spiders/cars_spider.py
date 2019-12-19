@@ -13,7 +13,23 @@ class CarsSpider(scrapy.Spider):
     number_of_pages = 0
 
     def __init__(self):
-        self.first_url = fill_form(self.first_url)
+        print('Podaj markę samochodu:')
+        brand = input()
+        print('Podaj model samochodu:')
+        model = input()
+        print('Podaj minimalną cenę')
+        min_price = input()
+        print('Podaj maksymalną cenę:')
+        max_price = input()
+        print('Podaj minimalny przebieg:')
+        min_mileage = input()
+        print('Podaj maksymalny przebieg:')
+        max_mileage = input()
+        print('Podaj minimalny rok produkcji:')
+        min_year = input()
+        print('Podaj maksymlany rok produkcji:')
+        max_year = input()
+        self.first_url = fill_form(self.first_url, brand, model, min_price, max_price, min_mileage, max_mileage, min_year, max_year)
 
     def start_requests(self):
         yield scrapy.Request(url=self.first_url, callback=self.parse)

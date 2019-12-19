@@ -63,7 +63,6 @@ class NewsSpider(scrapy.Spider):
             category_name = 'Wiadomości'
         elif self.category == 's':
             category_name = 'Sport'
-
         list_of_links = response.xpath('//ul[@class = "mainMenu"]/li/a/@href').extract()
         list_of_names = response.xpath('//ul[@class = "mainMenu"]/li/a/text()').extract()
 
